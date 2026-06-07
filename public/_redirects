@@ -1,0 +1,27 @@
+# Cloudflare Pages rewrites — Universal Charts is served under /charts/ but the
+# built files in dist/ are flat (Vite's `base` only rewrites URLs INSIDE the
+# HTML; it does not place files in dist/charts/).
+#
+# 200 status = transparent rewrite (URL bar unchanged). Specific rules first,
+# broad SPA fallback last.
+
+# Service-worker + PWA artefacts.
+/charts/sw.js                /sw.js                200
+/charts/registerSW.js        /registerSW.js        200
+/charts/manifest.webmanifest /manifest.webmanifest 200
+/charts/workbox-*            /workbox-:splat       200
+
+# Hashed asset bundles.
+/charts/assets/*             /assets/:splat        200
+
+# Static files referenced from index.html / app code (BASE_URL-prefixed).
+/charts/favicon.svg          /favicon.svg          200
+/charts/unisim-icon.png      /unisim-icon.png      200
+/charts/og-image.png         /og-image.png         200
+
+# SEO crawler files.
+/charts/robots.txt           /robots.txt           200
+/charts/sitemap.xml          /sitemap.xml          200
+
+# SPA fallback — everything else under /charts/ serves the shell.
+/charts/*                    /index.html           200

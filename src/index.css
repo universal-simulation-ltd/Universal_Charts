@@ -11,6 +11,14 @@ body {
 /* Recharts text should inherit the app's font + a legible default size. */
 .recharts-text { font-size: 12px; }
 
+/* Recharts makes pie sectors focusable (tabIndex) for arrow-key navigation, so
+   clicking a segment draws the browser's default focus box. Suppress that
+   outline — keyboard navigation still moves focus, we just hide the visual box. */
+.recharts-pie-sector:focus,
+.recharts-pie-sector:focus-visible,
+.recharts-sector:focus,
+.recharts-sector:focus-visible { outline: none; }
+
 /* Trim native color-input chrome so swatches sit flush in their wells. */
 input[type="color"] {
   -webkit-appearance: none;

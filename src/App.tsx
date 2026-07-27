@@ -30,7 +30,8 @@ export default function App() {
         product="charts"
         productLogo={<ProductLogo />}
         productHomeHref={import.meta.env.BASE_URL}
-        fileMenu={<AppMenu />}
+        actions={<AppMenu />}
+        actionsLabel="Sample data"
         suiteSwitcherIconSrc={`${import.meta.env.BASE_URL}unisim-icon.png`}
       />
 

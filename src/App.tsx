@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { UniversalAppsNavBar, useOrgBranding } from '@unisim/sdk'
+import { UniversalAppsNavBar, UpdateNotice, useOrgBranding } from '@unisim/sdk'
 import AppMenu from './components/Header/AppMenu'
 import ProductLogo from './components/Header/ProductLogo'
 import ChartStudio from './components/charts/ChartStudio'
@@ -34,6 +34,13 @@ export default function App() {
         actionsLabel="Sample data"
         suiteSwitcherIconSrc={`${import.meta.env.BASE_URL}unisim-icon.png`}
       />
+
+      {/* Renders nothing until this tab is genuinely running superseded code.
+          See the SDK's useAppUpdate: an autoUpdate PWA hands the new worker
+          control but leaves the running page on its old JavaScript. */}
+      <div className="mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
+        <UpdateNotice />
+      </div>
 
       <main className="flex-1">
         <ChartStudio />

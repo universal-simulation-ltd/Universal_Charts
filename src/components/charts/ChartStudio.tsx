@@ -99,7 +99,7 @@ export default function ChartStudio() {
                   ))}
                 </div>
               </div>
-              <button onClick={onPng} disabled={busy} className="rounded-md bg-orange-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-orange-700 disabled:opacity-50">PNG</button>
+              <button onClick={onPng} disabled={busy} className="rounded-md bg-orange-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-orange-800 disabled:opacity-50">PNG</button>
               <button onClick={onSvg} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">SVG</button>
               <button onClick={onCopy} disabled={busy} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50 disabled:opacity-50">Copy</button>
               <button onClick={onShare} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">Share link</button>

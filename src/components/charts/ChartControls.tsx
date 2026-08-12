@@ -33,7 +33,7 @@ export default function ChartControls() {
               onClick={() => setType(t.type)}
               className={`rounded-md px-2 py-1.5 text-xs font-medium ring-1 transition-colors ${
                 config.type === t.type
-                  ? 'bg-orange-600 text-white ring-orange-600'
+                  ? 'bg-orange-700 text-white ring-orange-600'
                   : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50'
               }`}
             >
@@ -65,7 +65,7 @@ export default function ChartControls() {
                   key={c.name}
                   onClick={() => toggleYKey(c.name)}
                   className={`rounded-full px-3 py-1 text-xs font-medium ring-1 transition-colors ${
-                    on ? 'bg-orange-600 text-white ring-orange-600' : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50'
+                    on ? 'bg-orange-700 text-white ring-orange-600' : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50'
                   }`}
                 >
                   {c.name}

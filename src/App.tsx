@@ -49,9 +49,12 @@ export default function App() {
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-4 flex flex-row items-center gap-3 sm:gap-4 text-xs text-slate-500">
           <span>
-            100% free — every feature, no paywalls. Your data never leaves the browser. Hosted by{' '}
+            With{' '}
+            <span aria-hidden="true" className="text-orange-600">&hearts;</span>
+            <span className="sr-only">love</span>{' '}
+            from{' '}
             <a href="https://www.unisim.co.uk" target="_blank" rel="noreferrer" className="text-slate-700 hover:text-orange-700 underline-offset-2 hover:underline">
-              UNI SIM
+              UNISIM.co.uk
             </a>
           </span>
           <a

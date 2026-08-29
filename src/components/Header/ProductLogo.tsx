@@ -36,10 +36,16 @@ export default function ProductLogo() {
     >
       <style>{CSS}</style>
       <svg viewBox="0 0 64 64" className="h-6 w-6" aria-hidden="true">
-        <rect x="0" y="0" width="64" height="64" rx="14" fill="#0f172a" />
-        <rect x={13} y={34} width={9} height={16} rx={2} fill="#ff9a1f" className="uam-charts-bar1" />
-        <rect x={27.5} y={24} width={9} height={26} rx={2} fill="#fe8c01" className="uam-charts-bar2" />
-        <rect x={42} y={16} width={9} height={34} rx={2} fill="#fe8c01" className="uam-charts-bar3" />
+        <defs>
+          <linearGradient id="uam-nav-charts-tile" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#fe8c01" />
+            <stop offset="1" stopColor="#e05504" />
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="14" fill="url(#uam-nav-charts-tile)" />
+        <rect x={13} y={34} width={9} height={16} rx={2} fill="#fed7aa" className="uam-charts-bar1" />
+        <rect x={27.5} y={24} width={9} height={26} rx={2} fill="#ffffff" className="uam-charts-bar2" />
+        <rect x={42} y={16} width={9} height={34} rx={2} fill="#ffffff" className="uam-charts-bar3" />
         <path d="M10 54h44" opacity={0.5} strokeWidth={3.2} strokeLinecap="round" stroke="#ffffff" fill="none" />
       </svg>
     </span>

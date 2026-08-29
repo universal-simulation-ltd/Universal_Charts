@@ -1,3 +1,4 @@
+import { AdvancedMenu } from '@unisim/sdk'
 import { useChartStore } from '../../stores/chartStore'
 import { SAMPLES } from '../../lib/samples'
 
@@ -19,6 +20,19 @@ export default function AppMenu() {
       {SAMPLES.map((s) => (
         <MenuRow key={s.id} label={s.label} onClick={() => loadSample(s.id)} />
       ))}
+
+      {/* Advanced — the SDK's own category, so every app in the suite has one in
+          the same place, and whatever goes in it next is one change rather than
+          nineteen. "About this app" is always its last row. */}
+      <AdvancedMenu
+        about={{
+          repo:    'https://github.com/universal-simulation-ltd/Universal_Charts',
+          subject: 'Your data',
+          plural:  true,
+          headline: 'Other chart tools upload your spreadsheet to draw it on their servers.',
+          version: __APP_VERSION__,
+        }}
+      />
     </>
   )
 }

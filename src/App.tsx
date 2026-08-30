@@ -37,8 +37,13 @@ export default function App() {
 
       {/* Renders nothing until this tab is genuinely running superseded code.
           See the SDK's useAppUpdate: an autoUpdate PWA hands the new worker
-          control but leaves the running page on its old JavaScript. */}
-      <div className="mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
+          control but leaves the running page on its old JavaScript.
+          ⚠️ `empty:hidden` is load-bearing: the notice is null almost always,
+          so without it this wrapper's `pt-4` left a permanently empty 16px
+          band under the nav bar — which reads as the bar having a stray gap
+          beneath it. React emits no whitespace text nodes between JSX
+          children, so `:empty` genuinely matches. */}
+      <div className="mx-auto w-full max-w-7xl px-4 pt-4 empty:hidden sm:px-6 lg:px-8">
         <UpdateNotice />
       </div>
 

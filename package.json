@@ -9,10 +9,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -b --noEmit"
+    "typecheck": "tsc -b --noEmit",
+    "credits": "node ../scripts/gen-credits.mjs . --repo https://github.com/universal-simulation-ltd/Universal_Charts"
   },
   "dependencies": {
-    "@unisim/sdk": "^0.125.1",
+    "@unisim/sdk": "^0.128.1",
     "html-to-image": "^1.11.11",
     "lz-string": "^1.5.0",
     "papaparse": "^5.4.1",

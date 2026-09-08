@@ -49,3 +49,9 @@ static `dist/` served by Cloudflare Pages under the `/charts/` base path.
 No backend. CSV is parsed locally; charts render locally; exports are generated
 locally; share links carry the data in the URL fragment. The app reads (never
 writes) your organisation's brand colour if you're signed in on `.unisim.co.uk`.
+
+## Licence
+
+[AGPL-3.0-or-later](LICENSE), with an added permission for app-store
+distribution. Use it, change it, share it — and if you run a changed copy and
+let other people use it over a network, offer them your source.

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { UniversalAppsNavBar, UpdateNotice, useOrgBranding } from '@unisim/sdk'
+import { UniversalAppsNavBar, UpdateNotice, accessibleColor, useOrgBranding } from '@unisim/sdk'
 import AppMenu from './components/Header/AppMenu'
 import ProductLogo from './components/Header/ProductLogo'
 import ChartStudio from './components/charts/ChartStudio'
@@ -20,8 +20,11 @@ export default function App() {
   }, [hydrate])
 
   // Tint the palette with the signed-in org's brand colour (no-op anonymously).
+  // Series are graphics, not text, so the bar is WCAG's 3:1 non-text contrast
+  // against the white chart ground: a pale brand colour is darkened just enough
+  // to be seen, same hue. The palette picker still shows exactly what's picked.
   useEffect(() => {
-    applyBrandColor(brand_color)
+    applyBrandColor(accessibleColor(brand_color, { minRatio: 3 }) ?? brand_color)
   }, [brand_color, applyBrandColor])
 
   return (

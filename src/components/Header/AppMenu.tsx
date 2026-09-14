@@ -1,10 +1,11 @@
-import { AdvancedMenu } from '@unisim/sdk'
+import { AdvancedMenu, MENU } from '@unisim/sdk'
 // Generated — `npm run credits` after any dependency change. Never edit it by
 // hand: it is read off the installed tree, so a hand-kept list drifts from the
 // lockfile the first time anyone upgrades anything, and a credits list naming a
 // package we removed is worse than no list at all.
 import credits from '../../generated/credits.json'
 import { useChartStore } from '../../stores/chartStore'
+import { useThemeStore, type ThemePref } from '../../stores/themeStore'
 import { SAMPLES } from '../../lib/samples'
 
 // The per-app rows that slot into <UniversalAppsNavBar />'s `actions` prop —
@@ -17,19 +18,51 @@ import { SAMPLES } from '../../lib/samples'
 // Styling is inline rather than Tailwind to match the SDK dropdown's own rows
 // (the same 8px/14px rhythm and 13px label the profile and language rows use) —
 // these render inside SDK chrome, not ours.
+//
+// ⚠️ Inline styles can't answer the `.dark` class, and the SDK does NOT theme
+// the host's `actions` rows — so every colour here comes from `ROW[theme]`.
+// The light column is exactly what these rows always rendered; the dark column
+// is the SDK's own `MENU.dark` palette, so the rows match the panel around them.
+
+const THEMES: { pref: ThemePref; label: string; glyph: string }[] = [
+  { pref: 'light', label: 'Light', glyph: '☀️' },
+  { pref: 'dark', label: 'Dark', glyph: '🌙' },
+  // 'system' is offered but is deliberately NOT the default — see themeStore.
+  { pref: 'system', label: 'Match my device', glyph: '🖥️' },
+]
+
 export default function AppMenu() {
   const loadSample = useChartStore((s) => s.loadSample)
+  const pref = useThemeStore((s) => s.pref)
+  const setPref = useThemeStore((s) => s.setPref)
+  const theme = useThemeStore((s) => s.effective)
+  const pal = ROW[theme]
 
   return (
     <>
       {SAMPLES.map((s) => (
-        <MenuRow key={s.id} label={s.label} onClick={() => loadSample(s.id)} />
+        <MenuRow key={s.id} pal={pal} glyph="📊" label={s.label} onClick={() => loadSample(s.id)} />
+      ))}
+
+      <MenuLabel pal={pal}>Appearance</MenuLabel>
+      {THEMES.map((t) => (
+        <MenuRow
+          key={t.pref}
+          pal={pal}
+          glyph={t.glyph}
+          label={t.label}
+          selected={pref === t.pref}
+          onClick={() => setPref(t.pref)}
+        />
       ))}
 
       {/* Advanced — the SDK's own category, so every app in the suite has one in
           the same place, and whatever goes in it next is one change rather than
-          nineteen. "About this app" is always its last row. */}
+          nineteen. "About this app" is always its last row. ⚠️ `theme` is
+          required here: the section is inline-styled and would otherwise render
+          as a pale strip in a dark dropdown. */}
       <AdvancedMenu
+        theme={theme}
         about={{
           repo:    'https://github.com/universal-simulation-ltd/Universal_Charts',
           subject: 'Your data',
@@ -44,14 +77,78 @@ export default function AppMenu() {
   )
 }
 
+interface RowPalette {
+  rest: string
+  hoverBg: string
+  hoverFg: string
+  selectedBg: string
+  selectedFg: string
+  label: string
+}
+
 const TINT = { bg: '#fff7ed', fg: '#c2410c' }
 const REST_COLOR = '#374151'
 
-function MenuRow({ label, onClick }: { label: string; onClick: () => void }) {
+const ROW: Record<'light' | 'dark', RowPalette> = {
+  light: {
+    rest: REST_COLOR,
+    hoverBg: TINT.bg,
+    hoverFg: TINT.fg,
+    selectedBg: TINT.bg,
+    selectedFg: TINT.fg,
+    // The section label is new with the theme rows; it takes the SDK's own
+    // AA-passing `faint` rather than the paler grey older apps used.
+    label: MENU.light.faint,
+  },
+  dark: {
+    rest: MENU.dark.body,
+    hoverBg: MENU.dark.rowHover,
+    hoverFg: MENU.dark.rowHoverText,
+    selectedBg: MENU.dark.accentBg,
+    selectedFg: MENU.dark.accentText,
+    label: MENU.dark.faint,
+  },
+}
+
+function MenuLabel({ pal, children }: { pal: RowPalette; children: string }) {
+  return (
+    <div
+      style={{
+        padding:       '8px 14px 4px',
+        fontSize:      11,
+        fontWeight:    600,
+        letterSpacing: '0.06em',
+        textTransform: 'uppercase',
+        color:         pal.label,
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+function MenuRow({
+  pal,
+  glyph,
+  label,
+  onClick,
+  selected,
+}: {
+  pal: RowPalette
+  glyph: string
+  label: string
+  onClick: () => void
+  /** Pass it (true or false) to make the row one of a radio group. */
+  selected?: boolean
+}) {
+  const restBg = selected ? pal.selectedBg : 'transparent'
+  const restFg = selected ? pal.selectedFg : pal.rest
+  const radio = selected !== undefined
   return (
     <button
       type="button"
-      role="menuitem"
+      role={radio ? 'menuitemradio' : 'menuitem'}
+      aria-checked={radio ? selected : undefined}
       onClick={onClick}
       style={{
         display:    'flex',
@@ -63,22 +160,23 @@ function MenuRow({ label, onClick }: { label: string; onClick: () => void }) {
         fontFamily: 'inherit',
         textAlign:  'left',
         border:     0,
-        background: 'transparent',
-        color:      REST_COLOR,
+        background: restBg,
+        color:      restFg,
         cursor:     'pointer',
         transition: 'background 120ms, color 120ms',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.background = TINT.bg
-        e.currentTarget.style.color = TINT.fg
+        e.currentTarget.style.background = pal.hoverBg
+        e.currentTarget.style.color = pal.hoverFg
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.background = 'transparent'
-        e.currentTarget.style.color = REST_COLOR
+        e.currentTarget.style.background = restBg
+        e.currentTarget.style.color = restFg
       }}
     >
-      <span aria-hidden>📊</span>
+      <span aria-hidden>{glyph}</span>
       <span style={{ flex: 1, minWidth: 0, fontWeight: 500, lineHeight: 1.3 }}>{label}</span>
+      {selected && <span aria-hidden style={{ color: pal.selectedFg }}>✓</span>}
     </button>
   )
 }

@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- ⚠️ THE THEME, BEFORE THE FIRST PIXEL — inline, rather than in the app.
+         `<html>`'s background is painted from `index.css` as soon as the
+         stylesheet lands, long before the module bundle has parsed, so a
+         dark-mode user would otherwise get a pale frame first and the dark one
+         a moment later. This runs during head parsing, so the class is already
+         on `<html>` at first paint; `createThemeStore` (the SDK) then reads the
+         same key and agrees.
+
+         ⚠️ THE KEY IS DUPLICATED — `src/stores/themeStore.ts` holds the other
+         copy, and renaming one silently resets everybody to light. Change both
+         or neither.
+
+         Light is the default (the suite rule), so this only ever ADDS `dark`. -->
+    <script>
+      try {
+        var pref = localStorage.getItem('unisim-charts-theme')
+        if (pref === 'dark' || (pref === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+          document.documentElement.style.colorScheme = 'dark'
+        }
+      } catch (e) {
+        /* private mode, storage disabled: light, exactly as the store falls back. */
+      }
+    </script>
     <link rel="apple-touch-icon" href="/unisim-icon.png" />
     <link rel="apple-touch-icon" href="/icon-180.png" />
 

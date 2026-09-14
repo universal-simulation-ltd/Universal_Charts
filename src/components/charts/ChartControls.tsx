@@ -21,7 +21,7 @@ export default function ChartControls() {
           value={config.title}
           onChange={(e) => patchConfig({ title: e.target.value })}
           placeholder="Optional chart title"
-          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none"
+          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-orange-500 dark:focus:ring-orange-500/30"
         />
       </Field>
 
@@ -34,7 +34,7 @@ export default function ChartControls() {
               className={`rounded-md px-2 py-1.5 text-xs font-medium ring-1 transition-colors ${
                 config.type === t.type
                   ? 'bg-orange-700 text-white ring-orange-600'
-                  : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50'
+                  : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-800'
               }`}
             >
               {t.label}
@@ -47,7 +47,7 @@ export default function ChartControls() {
         <select
           value={config.xKey}
           onChange={(e) => setXKey(e.target.value)}
-          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm bg-white focus:border-orange-500 outline-none"
+          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm bg-white focus:border-orange-500 outline-none dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100 dark:focus:border-orange-500"
         >
           {columns.map((c) => <option key={c.name} value={c.name}>{c.name}</option>)}
         </select>
@@ -65,7 +65,7 @@ export default function ChartControls() {
                   key={c.name}
                   onClick={() => toggleYKey(c.name)}
                   className={`rounded-full px-3 py-1 text-xs font-medium ring-1 transition-colors ${
-                    on ? 'bg-orange-700 text-white ring-orange-600' : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50'
+                    on ? 'bg-orange-700 text-white ring-orange-600' : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-800'
                   }`}
                 >
                   {c.name}
@@ -84,7 +84,7 @@ export default function ChartControls() {
               type="color"
               value={config.palette[i] ?? '#888888'}
               onChange={(e) => setPaletteColor(i, e.target.value)}
-              className="h-8 w-8 rounded-md ring-1 ring-slate-200 cursor-pointer"
+              className="h-8 w-8 rounded-md ring-1 ring-slate-200 cursor-pointer dark:ring-slate-700"
               title={`Colour ${i + 1}`}
             />
           ))}
@@ -109,7 +109,7 @@ export default function ChartControls() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</div>
+      <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{label}</div>
       {children}
     </div>
   )
@@ -117,7 +117,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 function Toggle({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
   return (
-    <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+    <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer dark:text-slate-200">
       <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} className="h-4 w-4 accent-orange-600" />
       {label}
     </label>

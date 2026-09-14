@@ -1,6 +1,16 @@
 @import "tailwindcss";
 
+/* Tailwind 4 defaults `dark:` to the OS media query. We drive it from a class
+   on <html> instead, because the suite rule is that an app opens LIGHT and only
+   goes dark when the user says so — see stores/themeStore.ts. With the media
+   default, a laptop set to dark would override that on first paint. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 html, body { height: 100%; margin: 0; }
+
+/* The ground behind everything — overscroll bounce and any gap below the
+   footer — so a dark page never flashes white at its edges. */
+html.dark { background-color: #020617; }
 #root { min-height: 100%; }
 
 body {

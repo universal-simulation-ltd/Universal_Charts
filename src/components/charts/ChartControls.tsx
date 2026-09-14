@@ -1,3 +1,4 @@
+import { ChipToggle } from '@unisim/sdk'
 import { useChartStore } from '../../stores/chartStore'
 import { CHART_TYPES, SINGLE_SERIES } from '../../lib/types'
 
@@ -61,15 +62,9 @@ export default function ChartControls() {
             {numericCols.filter((c) => c.name !== config.xKey).map((c) => {
               const on = config.yKeys.includes(c.name)
               return (
-                <button
-                  key={c.name}
-                  onClick={() => toggleYKey(c.name)}
-                  className={`rounded-full px-3 py-1 text-xs font-medium ring-1 transition-colors ${
-                    on ? 'bg-orange-700 text-white ring-orange-600' : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-800'
-                  }`}
-                >
+                <ChipToggle key={c.name} selected={on} onClick={() => toggleYKey(c.name)}>
                   {c.name}
-                </button>
+                </ChipToggle>
               )
             })}
           </div>

@@ -11,16 +11,23 @@
          dark-mode user would otherwise get a pale frame first and the dark one
          a moment later. This runs during head parsing, so the class is already
          on `<html>` at first paint; `createThemeStore` (the SDK) then reads the
-         same key and agrees.
+         same two keys and agrees.
 
-         ⚠️ THE KEY IS DUPLICATED — `src/stores/themeStore.ts` holds the other
-         copy, and renaming one silently resets everybody to light. Change both
-         or neither.
+         Since SDK 0.143 the app key holds this app's OVERRIDE, set in App
+         preferences; absent, the app follows the suite-wide choice from Global
+         preferences, `universal:color-scheme`. ⚠️ Both fallbacks matter: read
+         only the app key and someone who chose Dark globally gets a light first
+         frame and then a flip.
+
+         ⚠️ THE APP KEY IS DUPLICATED — `src/stores/themeStore.ts` holds the other
+         copy, and renaming one silently resets everybody who chose something
+         here to following global. Change both or neither.
 
          Light is the default (the suite rule), so this only ever ADDS `dark`. -->
     <script>
       try {
         var pref = localStorage.getItem('unisim-charts-theme')
+          || localStorage.getItem('universal:color-scheme') || 'light'
         if (pref === 'dark' || (pref === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)) {
           document.documentElement.classList.add('dark')
           document.documentElement.style.colorScheme = 'dark'

@@ -5,7 +5,7 @@ import { AdvancedMenu, MENU } from '@unisim/sdk'
 // package we removed is worse than no list at all.
 import credits from '../../generated/credits.json'
 import { useChartStore } from '../../stores/chartStore'
-import { useThemeStore, type ThemePref } from '../../stores/themeStore'
+import { useThemeStore } from '../../stores/themeStore'
 import { SAMPLES } from '../../lib/samples'
 
 // The per-app rows that slot into <UniversalAppsNavBar />'s `actions` prop —
@@ -23,18 +23,15 @@ import { SAMPLES } from '../../lib/samples'
 // the host's `actions` rows — so every colour here comes from `ROW[theme]`.
 // The light column is exactly what these rows always rendered; the dark column
 // is the SDK's own `MENU.dark` palette, so the rows match the panel around them.
-
-const THEMES: { pref: ThemePref; label: string; glyph: string }[] = [
-  { pref: 'light', label: 'Light', glyph: '☀️' },
-  { pref: 'dark', label: 'Dark', glyph: '🌙' },
-  // 'system' is offered but is deliberately NOT the default — see themeStore.
-  { pref: 'system', label: 'Match my device', glyph: '🖥️' },
-]
+//
+// The Appearance rows (Light / Dark / Match my device) that used to sit here
+// are gone since SDK 0.143: colour scheme is now a Global preference, and this
+// app's override of it lives in the SDK's App preferences dialog, offered
+// because App.tsx passes `themeStore` to the navbar. Don't add them back — two
+// controls for one setting, one of them unable to say "follow global".
 
 export default function AppMenu() {
   const loadSample = useChartStore((s) => s.loadSample)
-  const pref = useThemeStore((s) => s.pref)
-  const setPref = useThemeStore((s) => s.setPref)
   const theme = useThemeStore((s) => s.effective)
   const pal = ROW[theme]
 
@@ -42,18 +39,6 @@ export default function AppMenu() {
     <>
       {SAMPLES.map((s) => (
         <MenuRow key={s.id} pal={pal} glyph="📊" label={s.label} onClick={() => loadSample(s.id)} />
-      ))}
-
-      <MenuLabel pal={pal}>Appearance</MenuLabel>
-      {THEMES.map((t) => (
-        <MenuRow
-          key={t.pref}
-          pal={pal}
-          glyph={t.glyph}
-          label={t.label}
-          selected={pref === t.pref}
-          onClick={() => setPref(t.pref)}
-        />
       ))}
 
       {/* Advanced — the SDK's own category, so every app in the suite has one in
@@ -81,9 +66,6 @@ interface RowPalette {
   rest: string
   hoverBg: string
   hoverFg: string
-  selectedBg: string
-  selectedFg: string
-  label: string
 }
 
 const TINT = { bg: '#fff7ed', fg: '#c2410c' }
@@ -94,37 +76,12 @@ const ROW: Record<'light' | 'dark', RowPalette> = {
     rest: REST_COLOR,
     hoverBg: TINT.bg,
     hoverFg: TINT.fg,
-    selectedBg: TINT.bg,
-    selectedFg: TINT.fg,
-    // The section label is new with the theme rows; it takes the SDK's own
-    // AA-passing `faint` rather than the paler grey older apps used.
-    label: MENU.light.faint,
   },
   dark: {
     rest: MENU.dark.body,
     hoverBg: MENU.dark.rowHover,
     hoverFg: MENU.dark.rowHoverText,
-    selectedBg: MENU.dark.accentBg,
-    selectedFg: MENU.dark.accentText,
-    label: MENU.dark.faint,
   },
-}
-
-function MenuLabel({ pal, children }: { pal: RowPalette; children: string }) {
-  return (
-    <div
-      style={{
-        padding:       '8px 14px 4px',
-        fontSize:      11,
-        fontWeight:    600,
-        letterSpacing: '0.06em',
-        textTransform: 'uppercase',
-        color:         pal.label,
-      }}
-    >
-      {children}
-    </div>
-  )
 }
 
 function MenuRow({
@@ -132,23 +89,16 @@ function MenuRow({
   glyph,
   label,
   onClick,
-  selected,
 }: {
   pal: RowPalette
   glyph: string
   label: string
   onClick: () => void
-  /** Pass it (true or false) to make the row one of a radio group. */
-  selected?: boolean
 }) {
-  const restBg = selected ? pal.selectedBg : 'transparent'
-  const restFg = selected ? pal.selectedFg : pal.rest
-  const radio = selected !== undefined
   return (
     <button
       type="button"
-      role={radio ? 'menuitemradio' : 'menuitem'}
-      aria-checked={radio ? selected : undefined}
+      role="menuitem"
       onClick={onClick}
       style={{
         display:    'flex',
@@ -160,8 +110,8 @@ function MenuRow({
         fontFamily: 'inherit',
         textAlign:  'left',
         border:     0,
-        background: restBg,
-        color:      restFg,
+        background: 'transparent',
+        color:      pal.rest,
         cursor:     'pointer',
         transition: 'background 120ms, color 120ms',
       }}
@@ -170,13 +120,12 @@ function MenuRow({
         e.currentTarget.style.color = pal.hoverFg
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.background = restBg
-        e.currentTarget.style.color = restFg
+        e.currentTarget.style.background = 'transparent'
+        e.currentTarget.style.color = pal.rest
       }}
     >
       <span aria-hidden>{glyph}</span>
       <span style={{ flex: 1, minWidth: 0, fontWeight: 500, lineHeight: 1.3 }}>{label}</span>
-      {selected && <span aria-hidden style={{ color: pal.selectedFg }}>✓</span>}
     </button>
   )
 }

@@ -45,6 +45,10 @@ export default function App() {
         actionsLabel="Sample data"
         suiteSwitcherIconSrc={`${import.meta.env.BASE_URL}unisim-icon.png`}
         theme={theme}
+        // App preferences' Colour scheme row (Follow global / Light / Dark /
+        // System) is bound to this store. With the menu's Appearance rows gone,
+        // that row is where this app's own light/dark override is chosen.
+        themeStore={useThemeStore}
       />
 
       {/* Renders nothing until this tab is genuinely running superseded code.

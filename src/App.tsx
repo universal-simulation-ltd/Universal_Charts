@@ -6,6 +6,7 @@ import ChartStudio from './components/charts/ChartStudio'
 import { useChartStore } from './stores/chartStore'
 import { useThemeStore } from './stores/themeStore'
 import { readShareFromUrl } from './lib/share'
+import { KNOWLEDGE_BASE } from './knowledge'
 
 const REPO_URL = 'https://github.com/universal-simulation-ltd/Universal_Charts'
 
@@ -42,6 +43,9 @@ export default function App() {
         productLogo={<ProductLogo />}
         productHomeHref={import.meta.env.BASE_URL}
         actions={<AppMenu />}
+        // Actions ▸ Advanced ▸ Knowledge base (SDK 0.163.0): this app's own
+        // articles, bundled from ./knowledge so they read offline.
+        knowledgeBase={KNOWLEDGE_BASE}
         about={ABOUT}
         actionsLabel="Sample data"
         suiteSwitcherIconSrc={`${import.meta.env.BASE_URL}unisim-icon.png`}

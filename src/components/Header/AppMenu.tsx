@@ -1,4 +1,4 @@
-import { AdvancedMenu, MENU } from '@unisim/sdk'
+import { MENU, type AboutAppConfig } from '@unisim/sdk'
 // Generated — `npm run credits` after any dependency change. Never edit it by
 // hand: it is read off the installed tree, so a hand-kept list drifts from the
 // lockfile the first time anyone upgrades anything, and a credits list naming a
@@ -30,6 +30,19 @@ import { SAMPLES } from '../../lib/samples'
 // because App.tsx passes `themeStore` to the navbar. Don't add them back — two
 // controls for one setting, one of them unable to say "follow global".
 
+// "About this app" — handed to <UniversalAppsNavBar about={…}> in App.tsx.
+// Since SDK 0.161 the SDK draws the row at the foot of "Tune this app" and opens
+// its own AboutAppDialog, so it no longer sits in this actions menu.
+export const ABOUT: AboutAppConfig = {
+  repo:    'https://github.com/universal-simulation-ltd/Universal_Charts',
+  subject: 'Your data',
+  plural:  true,
+  headline: 'Other chart tools upload your spreadsheet to draw it on their servers.',
+  version: __APP_VERSION__,
+  credits,
+  noticesHref: 'https://github.com/universal-simulation-ltd/Universal_Charts/blob/main/THIRD-PARTY-NOTICES.md',
+}
+
 export default function AppMenu() {
   const loadSample = useChartStore((s) => s.loadSample)
   const theme = useThemeStore((s) => s.effective)
@@ -40,24 +53,6 @@ export default function AppMenu() {
       {SAMPLES.map((s) => (
         <MenuRow key={s.id} pal={pal} glyph="📊" label={s.label} onClick={() => loadSample(s.id)} />
       ))}
-
-      {/* Advanced — the SDK's own category, so every app in the suite has one in
-          the same place, and whatever goes in it next is one change rather than
-          nineteen. "About this app" is always its last row. ⚠️ `theme` is
-          required here: the section is inline-styled and would otherwise render
-          as a pale strip in a dark dropdown. */}
-      <AdvancedMenu
-        theme={theme}
-        about={{
-          repo:    'https://github.com/universal-simulation-ltd/Universal_Charts',
-          subject: 'Your data',
-          plural:  true,
-          headline: 'Other chart tools upload your spreadsheet to draw it on their servers.',
-          version: __APP_VERSION__,
-          credits,
-          noticesHref: 'https://github.com/universal-simulation-ltd/Universal_Charts/blob/main/THIRD-PARTY-NOTICES.md',
-        }}
-      />
     </>
   )
 }

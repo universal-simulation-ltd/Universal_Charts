@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { UniversalAppsNavBar, UpdateNotice, accessibleColor, useOrgBranding } from '@unisim/sdk'
-import AppMenu from './components/Header/AppMenu'
+import AppMenu, { ABOUT } from './components/Header/AppMenu'
 import ProductLogo from './components/Header/ProductLogo'
 import ChartStudio from './components/charts/ChartStudio'
 import { useChartStore } from './stores/chartStore'
@@ -42,6 +42,7 @@ export default function App() {
         productLogo={<ProductLogo />}
         productHomeHref={import.meta.env.BASE_URL}
         actions={<AppMenu />}
+        about={ABOUT}
         actionsLabel="Sample data"
         suiteSwitcherIconSrc={`${import.meta.env.BASE_URL}unisim-icon.png`}
         theme={theme}

@@ -150,6 +150,8 @@ Le esportazioni hanno sempre lo sfondo bianco, anche quando l’app è in modali
 
 **Share link** copia un indirizzo web che contiene l’intero grafico (le sue impostazioni **e tutti i suoi dati**) compresso nel link stesso. L’app non salva grafici da nessuna parte: quando qualcuno apre il link, il suo browser ricostruisce il grafico solo a partire dal link.
 
+Il grafico si trova nella parte del link dopo il simbolo #. I browser non inviano mai quella parte a un sito web, quindi aprire un link di condivisione non fa arrivare i dati nemmeno al nostro server.
+
 Questo ha due conseguenze che vale la pena capire:
 
 - **Il link sono i dati.** Chiunque abbia il link può vedere ogni valore del grafico, quindi condividilo solo con chi può vedere quei dati. I link inoltre tendono a restare in giro (nella cronologia del browser, nelle chat e nelle email, e ovunque vengano inoltrati), quindi tratta il link come tratteresti i dati stessi.

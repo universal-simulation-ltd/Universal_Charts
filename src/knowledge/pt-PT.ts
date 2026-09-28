@@ -150,6 +150,8 @@ As exportações têm sempre fundo branco, mesmo quando a aplicação está em m
 
 **Share link** copia um endereço web que contém o gráfico inteiro — as definições **e todos os dados** — comprimido na própria ligação. A aplicação não armazena gráficos em lado nenhum: quando alguém abre a ligação, o navegador dessa pessoa reconstrói o gráfico apenas a partir da ligação.
 
+O gráfico vai na parte da ligação a seguir ao sinal #. Os navegadores nunca enviam essa parte a um site, pelo que abrir uma ligação de partilha também não faz chegar os dados ao nosso servidor.
+
 Isto tem duas consequências que vale a pena compreender:
 
 - **A ligação são os dados.** Qualquer pessoa que tenha a ligação pode ver todos os valores do gráfico, por isso partilhe-a apenas com quem pode ver esses dados. Além disso, as ligações tendem a ficar guardadas — no histórico do navegador, em conversas e e-mails, e onde quer que sejam reencaminhadas —, por isso trate a ligação como trataria os próprios dados.

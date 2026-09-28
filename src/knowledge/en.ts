@@ -150,6 +150,8 @@ Exports always have a white background, even when the app is in dark mode, so th
 
 **Share link** copies a web address that contains the whole chart — its settings **and all of its data** — compressed into the link itself. The app doesn’t store charts anywhere: when someone opens the link, their browser rebuilds the chart from the link alone.
 
+The chart is carried in the part of the link after the # sign. Browsers never send that part to a website, so opening a share link doesn’t pass the data to our server either.
+
 That has two consequences worth understanding:
 
 - **The link is the data.** Anyone who has the link can see every value in the chart, so share it only with people who may see the data. Links also tend to be kept — in browser history, in chat and email, and wherever they are forwarded — so treat the link as you would the data itself.

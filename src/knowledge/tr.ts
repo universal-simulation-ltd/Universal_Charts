@@ -150,6 +150,8 @@ Dışa aktarılan dosyaların arka planı, uygulama karanlık moddayken bile her
 
 **Share link**, grafiğin tamamını (ayarlarını **ve tüm verilerini**) bağlantının içine sıkıştırılmış olarak içeren bir web adresini kopyalar. Uygulama grafikleri hiçbir yerde saklamaz: biri bağlantıyı açtığında, onun tarayıcısı grafiği yalnızca bağlantıdan yeniden oluşturur.
 
+Grafik, bağlantının # işaretinden sonraki bölümünde taşınır. Tarayıcılar bu bölümü hiçbir zaman bir web sitesine göndermez; bu nedenle bir paylaşım bağlantısını açmak verileri sunucumuza da iletmez.
+
 Bunun anlaşılmaya değer iki sonucu vardır:
 
 - **Bağlantı, verinin kendisidir.** Bağlantıya sahip olan herkes grafikteki her değeri görebilir; bu nedenle bağlantıyı yalnızca verileri görmesinde sakınca olmayan kişilerle paylaşın. Bağlantılar ayrıca bir yerlerde kalma eğilimindedir (tarayıcı geçmişinde, sohbetlerde ve e-postalarda, iletildikleri her yerde); bu nedenle bağlantıya verilerin kendisine davrandığınız gibi davranın.

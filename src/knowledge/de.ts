@@ -150,6 +150,8 @@ Exporte haben immer einen weißen Hintergrund, auch wenn die App im dunklen Modu
 
 **Share link** kopiert eine Webadresse, die das gesamte Diagramm enthält – seine Einstellungen **und alle seine Daten** –, komprimiert im Link selbst. Die App speichert Diagramme nirgendwo: Wenn jemand den Link öffnet, baut sein Browser das Diagramm allein aus dem Link wieder auf.
 
+Das Diagramm steckt im Teil des Links nach dem Zeichen #. Diesen Teil senden Browser nie an eine Website, deshalb erreichen die Daten auch beim Öffnen eines Freigabelinks unseren Server nicht.
+
 Das hat zwei Folgen, die man verstehen sollte:
 
 - **Der Link sind die Daten.** Wer den Link hat, kann jeden Wert im Diagramm sehen. Teilen Sie ihn also nur mit Personen, die die Daten sehen dürfen. Links bleiben zudem oft erhalten – im Browserverlauf, in Chats und E-Mails und überall, wohin sie weitergeleitet werden. Behandeln Sie den Link deshalb wie die Daten selbst.

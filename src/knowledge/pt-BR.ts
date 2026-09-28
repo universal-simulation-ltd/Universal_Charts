@@ -150,6 +150,8 @@ As exportações sempre têm fundo branco, mesmo quando o app está no modo escu
 
 **Share link** copia um endereço da web que contém o gráfico inteiro — as configurações **e todos os dados** — compactado dentro do próprio link. O app não armazena gráficos em lugar nenhum: quando alguém abre o link, o navegador dessa pessoa monta o gráfico de novo só a partir do link.
 
+O gráfico fica na parte do link depois do sinal #. Os navegadores nunca enviam essa parte a um site, então abrir um link de compartilhamento também não passa os dados para o nosso servidor.
+
 Isso tem duas consequências que vale a pena entender:
 
 - **O link é os dados.** Qualquer pessoa com o link pode ver todos os valores do gráfico, então compartilhe só com quem pode ver esses dados. Os links também costumam ficar guardados — no histórico do navegador, em conversas e e-mails, e em todo lugar para onde forem encaminhados —, então trate o link como você trataria os próprios dados.

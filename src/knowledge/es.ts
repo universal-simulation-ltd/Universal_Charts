@@ -150,6 +150,8 @@ Las exportaciones siempre tienen fondo blanco, incluso cuando la aplicación est
 
 **Share link** copia una dirección web que contiene el gráfico completo —su configuración **y todos sus datos**— comprimido dentro del propio enlace. La aplicación no guarda gráficos en ningún sitio: cuando alguien abre el enlace, su navegador reconstruye el gráfico solo a partir del enlace.
 
+El gráfico va en la parte del enlace que sigue al signo #. Los navegadores nunca envían esa parte a un sitio web, así que abrir un enlace para compartir tampoco hace llegar los datos a nuestro servidor.
+
 Esto tiene dos consecuencias que conviene entender:
 
 - **El enlace son los datos.** Cualquiera que tenga el enlace puede ver todos los valores del gráfico, así que compártalo solo con personas que puedan ver esos datos. Además, los enlaces suelen quedarse guardados —en el historial del navegador, en chats y correos, y allí donde se reenvíen—, así que trate el enlace como trataría los propios datos.

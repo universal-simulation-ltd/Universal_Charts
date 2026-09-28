@@ -150,6 +150,8 @@ Les exports ont toujours un fond blanc, même lorsque l’application est en mod
 
 **Share link** copie une adresse web qui contient tout le graphique — ses réglages **et toutes ses données** — compressé dans le lien lui-même. L’application ne stocke aucun graphique : lorsque quelqu’un ouvre le lien, son navigateur reconstruit le graphique à partir du lien seul.
 
+Le graphique se trouve dans la partie du lien qui suit le signe #. Les navigateurs n’envoient jamais cette partie à un site web : ouvrir un lien de partage ne transmet donc pas non plus les données à notre serveur.
+
 Cela a deux conséquences qu’il vaut la peine de comprendre :
 
 - **Le lien, ce sont les données.** Toute personne qui possède le lien peut voir chaque valeur du graphique : ne le partagez donc qu’avec des personnes autorisées à voir ces données. Les liens ont aussi tendance à être conservés — dans l’historique du navigateur, dans les discussions et les e-mails, et partout où ils sont transférés — : traitez donc le lien comme vous traiteriez les données elles-mêmes.

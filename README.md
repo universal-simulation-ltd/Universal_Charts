@@ -25,8 +25,11 @@ own `APPS` list.
   gridlines / legend / data labels / smooth-curve toggles
 - Org brand colour applied automatically when you're signed in with a Universal ID
 - Export **PNG** (1×/2×/3×), **SVG**, or copy to clipboard
-- **Share link** — the chart config + data are LZ-compressed into the URL, so a
-  recipient sees the exact chart with no server involved
+- **Share link** — the chart config + data are LZ-compressed into the URL
+  fragment (`#d=…`), so a recipient sees the exact chart with no server
+  involved. Browsers never send the fragment in the request, so the data isn't
+  in any server or CDN log. Older `?d=…` links still open, and the app moves
+  them into the fragment as soon as they load
 
 ## Stack
 
@@ -47,7 +50,8 @@ static `dist/` served by Cloudflare Pages under the `/charts/` base path.
 ## Privacy
 
 No backend. CSV is parsed locally; charts render locally; exports are generated
-locally; share links carry the data in the URL fragment. The app reads (never
+locally; share links carry the data in the URL fragment (`#d=…`), which
+browsers never send to a server. The app reads (never
 writes) your organisation's brand colour if you're signed in on `.unisim.co.uk`.
 
 ## Licence

@@ -5,7 +5,7 @@ import ProductLogo from './components/Header/ProductLogo'
 import ChartStudio from './components/charts/ChartStudio'
 import { useChartStore } from './stores/chartStore'
 import { useThemeStore } from './stores/themeStore'
-import { readShareFromUrl } from './lib/share'
+import { adoptLegacyShareUrl, readShareFromUrl } from './lib/share'
 import { KNOWLEDGE_BASE } from './knowledge'
 
 const REPO_URL = 'https://github.com/universal-simulation-ltd/Universal_Charts'
@@ -19,10 +19,19 @@ export default function App() {
   // rest of this page uses — they need to be told.
   const theme = useThemeStore((s) => s.effective)
 
-  // Reconstruct a shared chart from the URL on first paint.
+  // Reconstruct a shared chart from the URL on first paint, moving a legacy
+  // `?d=` link into the fragment. Also on `hashchange`: pasting another share
+  // link into a tab already on this page changes only the fragment, which does
+  // NOT reload the page — without this the old chart would stay on screen.
   useEffect(() => {
-    const shared = readShareFromUrl()
-    if (shared) hydrate(shared)
+    const load = () => {
+      const shared = readShareFromUrl()
+      if (shared) hydrate(shared)
+    }
+    load()
+    adoptLegacyShareUrl()
+    window.addEventListener('hashchange', load)
+    return () => window.removeEventListener('hashchange', load)
   }, [hydrate])
 
   // Tint the palette with the signed-in org's brand colour (no-op anonymously).

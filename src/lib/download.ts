@@ -33,7 +33,9 @@ export function downloadSvg(node: HTMLElement, filename: string): void {
   const blob = new Blob([xml], { type: 'image/svg+xml;charset=utf-8' })
   const url = URL.createObjectURL(blob)
   triggerDownload(url, filename)
-  URL.revokeObjectURL(url)
+  // Not revoked synchronously: Safari and Firefox start the download after
+  // click() returns, and a URL revoked first downloads nothing.
+  setTimeout(() => URL.revokeObjectURL(url), 30_000)
 }
 
 export async function copyPng(node: HTMLElement): Promise<boolean> {

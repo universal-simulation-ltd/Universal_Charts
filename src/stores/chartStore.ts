@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import type { ChartConfig, ChartType, Column, Row, SharePayload } from '../lib/types'
-import { parseCsv } from '../lib/csv'
+import { parseCsv, toCsv } from '../lib/csv'
 import { DEFAULT_PALETTE } from '../lib/palette'
 import { DEFAULT_SAMPLE, SAMPLES } from '../lib/samples'
 
@@ -114,7 +114,10 @@ export const useChartStore = create<ChartState>((set, get) => ({
       columns: payload.columns,
       rows: payload.rows,
       config: { ...defaultConfig(), ...payload.config },
-      rawText: csvFromData(payload.columns, payload.rows),
+      // Properly quoted: a hand-rolled join wrote `London, UK` back as two
+      // cells, so editing a shared chart's data and pressing Update shifted
+      // every column after it.
+      rawText: toCsv(payload.columns, payload.rows),
     }),
 
   payload: () => {
@@ -122,11 +125,3 @@ export const useChartStore = create<ChartState>((set, get) => ({
     return { config, columns, rows }
   },
 }))
-
-// Lightweight CSV reconstruction for the editor textarea after a share-link load
-// (avoids importing the heavier toCsv into the store's hot path).
-function csvFromData(columns: Column[], rows: Row[]): string {
-  const head = columns.map((c) => c.name).join(',')
-  const body = rows.map((r) => columns.map((c) => String(r[c.name] ?? '')).join(',')).join('\n')
-  return head + '\n' + body
-}

@@ -1,5 +1,6 @@
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 import type { SharePayload } from './types'
+import { sanitizeShare } from './sharePayload'
 
 // The chart config + data are LZ-compressed into the URL FRAGMENT (`#d=…`), so
 // a shared link reconstructs the chart entirely client-side — no server, no
@@ -24,9 +25,8 @@ export function decodeShare(encoded: string): SharePayload | null {
     // went through URLSearchParams (which reads '+' as a space) still decodes.
     const json = decompressFromEncodedURIComponent(encoded)
     if (!json) return null
-    const parsed = JSON.parse(json) as Partial<SharePayload>
-    if (!parsed.config || !Array.isArray(parsed.columns) || !Array.isArray(parsed.rows)) return null
-    return parsed as SharePayload
+    // Somebody else's JSON: keep what a real link carries, drop the rest.
+    return sanitizeShare(JSON.parse(json))
   } catch {
     return null
   }

@@ -1,5 +1,10 @@
 # Universal Charts
 
+> **Retired 2026-10-05.** Universal Charts was never deployed and is no longer
+> part of the UNI·SIM suite. This repository is archived (read-only) and kept
+> for reference; `opensource.unisim.co.uk/charts` redirects to the Universal
+> Apps portal.
+
 Turn CSV into clean, shareable charts — entirely in your browser. Part of the
 [Universal Apps](https://opensource.unisim.co.uk) family from UNI·SIM.
 

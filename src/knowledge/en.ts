@@ -156,9 +156,9 @@ That has two consequences worth understanding:
 - **The link is the data.** Anyone who has the link can see every value in the chart, so share it only with people who may see the data. Links also tend to be kept — in browser history, in chat and email, and wherever they are forwarded — so treat the link as you would the data itself.
 - **Large tables make long links.** The link grows with the amount of data. Very long links can be cut short by some apps and websites, so share links suit small and medium-sized tables best. For a large table, share an exported image instead.
 
-## No account, and the user count
+## No account, nothing counted
 
-Universal Charts has no sign-in and records nothing about you or your use of it. One thing is sent: to count how many people use the app, your browser keeps a random number, not linked to you or to any account, and sends it with the kind of device (web, phone or computer) to UNI·SIM's server every 45 seconds while the app is open and on screen. Your data and charts are never part of it.`,
+Universal Charts has no sign-in and sends nothing about you or your use of it: no account, no identifier and no usage count. Your data and charts never leave your browser.`,
   },
 ]
 

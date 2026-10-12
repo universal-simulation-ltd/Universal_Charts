@@ -156,9 +156,9 @@ Das hat zwei Folgen, die man verstehen sollte:
 - **Der Link sind die Daten.** Wer den Link hat, kann jeden Wert im Diagramm sehen. Teilen Sie ihn also nur mit Personen, die die Daten sehen dürfen. Links bleiben zudem oft erhalten – im Browserverlauf, in Chats und E-Mails und überall, wohin sie weitergeleitet werden. Behandeln Sie den Link deshalb wie die Daten selbst.
 - **Große Tabellen ergeben lange Links.** Der Link wächst mit der Datenmenge. Manche Apps und Websites kürzen sehr lange Links, daher eignen sich Freigabelinks am besten für kleine und mittelgroße Tabellen. Teilen Sie bei einer großen Tabelle lieber ein exportiertes Bild.
 
-## Kein Konto, und die Nutzerzählung
+## Kein Konto, keine Zählung
 
-Universal Charts hat keine Anmeldung und speichert nichts über Sie oder Ihre Nutzung. Nur eines wird gesendet: Um zu zählen, wie viele Menschen die App nutzen, speichert Ihr Browser eine Zufallszahl, die weder mit Ihnen noch mit einem Konto verknüpft ist, und sendet sie zusammen mit der Geräteart (Web, Telefon oder Computer) alle 45 Sekunden an den Server von UNI·SIM, solange die App geöffnet und auf dem Bildschirm ist. Ihre Daten und Diagramme sind nie Teil davon.`,
+Universal Charts hat keine Anmeldung und sendet nichts über Sie oder Ihre Nutzung: kein Konto, keine Kennung und keine Nutzungszählung. Ihre Daten und Diagramme verlassen nie Ihren Browser.`,
   },
 ]
 

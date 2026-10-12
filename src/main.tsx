@@ -9,10 +9,9 @@ import './index.css'
 // still mount <UniversalProvider> so the shared navbar works.
 //
 // No accounts (privacy audit 2026-10-12): `noAccounts: true`, no org
-// brand-colour read. The one thing that reaches Supabase is the SDK user count
-// (`presence`: a random install id kept in this browser plus the kind of
-// device, every 45 s while the page is open and in view), set explicitly and
-// described in the "privacy-and-sharing" article and README → Privacy.
+// brand-colour read, and so no usage count either (SDK 0.187: the suite user
+// count is retired and the anonymous open count is off with noAccounts).
+// Nothing about the visitor reaches Supabase.
 //
 // The fallback is the REAL public suite project (publishable anon key — safe to
 // ship; RLS is the security boundary). A placeholder fallback left the SDK on a
@@ -26,7 +25,6 @@ const universalConfig = {
   // (mirrors how Universal QR shipped 'qr').
   product: 'charts' as unknown as ProductCode,
   noAccounts: true,
-  presence: true,
   cookieDomain: import.meta.env.PROD ? '.unisim.co.uk' : undefined,
 }
 

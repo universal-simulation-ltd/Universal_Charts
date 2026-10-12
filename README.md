@@ -19,7 +19,7 @@ To launch: create the Pages project, add `'/charts'` to `TARGETS` in
 entry in the SDK's `DEFAULT_UNIVERSAL_APPS_PRODUCTS`, and add it to the portal's
 own `APPS` list.
 
-100% free, open source, works offline. Your data never leaves the browser (see Privacy for the one thing that does: an anonymous user count).
+100% free, open source, works offline. Your data never leaves the browser, and nothing about you or your use is sent.
 
 ## Features
 
@@ -56,11 +56,8 @@ static `dist/` served by Cloudflare Pages under the `/charts/` base path.
 
 No backend. CSV is parsed locally; charts render locally; exports are generated
 locally; share links carry the data in the URL fragment (`#d=…`), which
-browsers never send to a server. There is no sign-in (`noAccounts`). The one
-thing sent is the suite user count (`@unisim/sdk` presence): your browser keeps
-a random install id, not tied to you or an account, and sends it with the kind
-of device (web, phone or computer) to UNI·SIM's Supabase every 45 seconds while
-the app is open and on screen. Your data is never part of it.
+browsers never send to a server. There is no sign-in (`noAccounts`), and no usage count or
+identifier of any kind is sent (the suite user count was retired on 2026-10-12).
 
 ## Licence
 

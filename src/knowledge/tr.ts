@@ -156,9 +156,9 @@ Bunun anlaşılmaya değer iki sonucu vardır:
 - **Bağlantı, verinin kendisidir.** Bağlantıya sahip olan herkes grafikteki her değeri görebilir; bu nedenle bağlantıyı yalnızca verileri görmesinde sakınca olmayan kişilerle paylaşın. Bağlantılar ayrıca bir yerlerde kalma eğilimindedir (tarayıcı geçmişinde, sohbetlerde ve e-postalarda, iletildikleri her yerde); bu nedenle bağlantıya verilerin kendisine davrandığınız gibi davranın.
 - **Büyük tablolar uzun bağlantılar oluşturur.** Bağlantı, veri miktarıyla birlikte uzar. Bazı uygulamalar ve web siteleri çok uzun bağlantıları kesebilir; bu nedenle paylaşım bağlantıları en çok küçük ve orta boy tablolar için uygundur. Büyük bir tablo için bunun yerine dışa aktarılmış bir görsel paylaşın.
 
-## Hesap yok ve kullanıcı sayımı
+## Hesap yok, sayım yok
 
-Universal Charts'ta oturum açma yoktur ve sizin ya da kullanımınız hakkında hiçbir şey kaydedilmez. Yalnızca tek bir şey gönderilir: uygulamayı kaç kişinin kullandığını saymak için tarayıcınız, size ya da herhangi bir hesaba bağlı olmayan rastgele bir sayı saklar ve uygulama açık ve ekranda olduğu sürece bunu cihaz türüyle (web, telefon veya bilgisayar) birlikte her 45 saniyede bir UNI·SIM sunucusuna gönderir. Verileriniz ve grafikleriniz asla bunun parçası değildir.`,
+Universal Charts'ta oturum açma yoktur ve sizin ya da kullanımınız hakkında hiçbir şey gönderilmez: hesap, tanımlayıcı veya kullanım sayımı yoktur. Verileriniz ve grafikleriniz tarayıcınızdan hiç çıkmaz.`,
   },
 ]
 

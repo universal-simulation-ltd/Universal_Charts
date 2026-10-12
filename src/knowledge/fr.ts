@@ -156,9 +156,9 @@ Cela a deux conséquences qu’il vaut la peine de comprendre :
 - **Le lien, ce sont les données.** Toute personne qui possède le lien peut voir chaque valeur du graphique : ne le partagez donc qu’avec des personnes autorisées à voir ces données. Les liens ont aussi tendance à être conservés — dans l’historique du navigateur, dans les discussions et les e-mails, et partout où ils sont transférés — : traitez donc le lien comme vous traiteriez les données elles-mêmes.
 - **Les grands tableaux donnent des liens longs.** Le lien s’allonge avec la quantité de données. Certaines applications et certains sites peuvent tronquer les liens très longs : les liens de partage conviennent donc surtout aux tableaux petits et moyens. Pour un grand tableau, partagez plutôt une image exportée.
 
-## Pas de compte, et le comptage des utilisateurs
+## Aucun compte, aucun comptage
 
-Universal Charts n’a pas de connexion et n’enregistre rien sur vous ni sur votre utilisation. Une seule chose est envoyée : pour compter le nombre de personnes qui utilisent l’application, votre navigateur conserve un nombre aléatoire, lié ni à vous ni à un compte, et l’envoie avec le type d’appareil (web, téléphone ou ordinateur) au serveur d’UNI·SIM toutes les 45 secondes tant que l’application est ouverte et affichée. Vos données et vos graphiques n’en font jamais partie.`,
+Universal Charts n’a pas de connexion et n’envoie rien sur vous ni sur votre utilisation : ni compte, ni identifiant, ni comptage d’utilisation. Vos données et vos graphiques ne quittent jamais votre navigateur.`,
   },
 ]
 

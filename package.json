@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "license": "AGPL-3.0-or-later",
-  "description": "Universal Charts — turn CSV into clean, shareable charts entirely in your browser.",
+  "description": "Universal Charts \u2014 turn CSV into clean, shareable charts entirely in your browser.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -14,7 +14,7 @@
     "credits": "node ../scripts/gen-credits.mjs . --repo https://github.com/universal-simulation-ltd/Universal_Charts"
   },
   "dependencies": {
-    "@unisim/sdk": "^0.180.0",
+    "@unisim/sdk": "^0.187.0",
     "html-to-image": "^1.11.11",
     "lz-string": "^1.5.0",
     "papaparse": "^5.4.1",

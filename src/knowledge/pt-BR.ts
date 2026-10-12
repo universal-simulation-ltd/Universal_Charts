@@ -156,9 +156,9 @@ Isso tem duas consequências que vale a pena entender:
 - **O link é os dados.** Qualquer pessoa com o link pode ver todos os valores do gráfico, então compartilhe só com quem pode ver esses dados. Os links também costumam ficar guardados — no histórico do navegador, em conversas e e-mails, e em todo lugar para onde forem encaminhados —, então trate o link como você trataria os próprios dados.
 - **Tabelas grandes geram links longos.** O link cresce com a quantidade de dados. Alguns apps e sites podem cortar links muito longos, então os links de compartilhamento funcionam melhor para tabelas pequenas e médias. Para uma tabela grande, compartilhe uma imagem exportada.
 
-## Sem conta, e a contagem de usuários
+## Sem conta, sem contagem
 
-O Universal Charts não tem login e não registra nada sobre você nem sobre o seu uso. Só uma coisa é enviada: para contar quantas pessoas usam o app, o seu navegador guarda um número aleatório, sem ligação com você nem com nenhuma conta, e o envia com o tipo de dispositivo (web, celular ou computador) ao servidor da UNI·SIM a cada 45 segundos enquanto o app está aberto e na tela. Os seus dados e gráficos nunca fazem parte disso.`,
+O Universal Charts não tem login e não envia nada sobre você nem sobre o seu uso: nenhuma conta, nenhum identificador e nenhuma contagem de uso. Seus dados e gráficos nunca saem do seu navegador.`,
   },
 ]
 

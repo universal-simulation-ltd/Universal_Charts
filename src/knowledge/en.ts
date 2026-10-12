@@ -129,8 +129,7 @@ Exports always have a white background, even when the app is in dark mode, so th
 ## Things to know
 
 - **Your work isn’t saved.** The app keeps no copy of your data or chart. If you reload the page, it starts again from the sample data. Keep your original data, or make a share link, if you may want to come back to a chart.
-- **It works offline.** Once the app has loaded, it can make charts without an internet connection, because nothing needs a server.
-- **Signed in with a Universal ID?** If your organisation has set a brand colour, it leads the colour palette automatically, darkened slightly if needed so that it stands out clearly against the white background.`,
+- **It works offline.** Once the app has loaded, it can make charts without an internet connection, because nothing needs a server.`,
   },
   {
     id: 'privacy-and-sharing',
@@ -157,9 +156,9 @@ That has two consequences worth understanding:
 - **The link is the data.** Anyone who has the link can see every value in the chart, so share it only with people who may see the data. Links also tend to be kept — in browser history, in chat and email, and wherever they are forwarded — so treat the link as you would the data itself.
 - **Large tables make long links.** The link grows with the amount of data. Very long links can be cut short by some apps and websites, so share links suit small and medium-sized tables best. For a large table, share an exported image instead.
 
-## Universal ID
+## No account, and the user count
 
-Signing in is optional, and the app works fully without it. If you are signed in with a Universal ID, the app reads your organisation’s brand colour so it can use it in your charts. Your data isn’t part of that request, and the app never writes anything to your account.`,
+Universal Charts has no sign-in and records nothing about you or your use of it. One thing is sent: to count how many people use the app, your browser keeps a random number, not linked to you or to any account, and sends it with the kind of device (web, phone or computer) to UNI·SIM's server every 45 seconds while the app is open and on screen. Your data and charts are never part of it.`,
   },
 ]
 

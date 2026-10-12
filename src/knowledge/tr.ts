@@ -129,8 +129,7 @@ Dışa aktarılan dosyaların arka planı, uygulama karanlık moddayken bile her
 ## Bilmeniz gerekenler
 
 - **Çalışmanız kaydedilmez.** Uygulama, verilerinizin ya da grafiğinizin hiçbir kopyasını tutmaz. Sayfayı yeniden yüklerseniz örnek verilerle yeniden başlar. Bir grafiğe geri dönmek isteyebilirseniz özgün verilerinizi saklayın ya da bir paylaşım bağlantısı oluşturun.
-- **Çevrimdışı çalışır.** Uygulama yüklendikten sonra internet bağlantısı olmadan grafik oluşturabilir, çünkü hiçbir şey sunucu gerektirmez.
-- **Universal ID ile oturum açtınız mı?** Kuruluşunuz bir marka rengi belirlediyse bu renk otomatik olarak renk paletinin başına geçer; beyaz arka planda net biçimde öne çıkması için gerekirse biraz koyulaştırılır.`,
+- **Çevrimdışı çalışır.** Uygulama yüklendikten sonra internet bağlantısı olmadan grafik oluşturabilir, çünkü hiçbir şey sunucu gerektirmez.`,
   },
   {
     id: 'privacy-and-sharing',
@@ -157,9 +156,9 @@ Bunun anlaşılmaya değer iki sonucu vardır:
 - **Bağlantı, verinin kendisidir.** Bağlantıya sahip olan herkes grafikteki her değeri görebilir; bu nedenle bağlantıyı yalnızca verileri görmesinde sakınca olmayan kişilerle paylaşın. Bağlantılar ayrıca bir yerlerde kalma eğilimindedir (tarayıcı geçmişinde, sohbetlerde ve e-postalarda, iletildikleri her yerde); bu nedenle bağlantıya verilerin kendisine davrandığınız gibi davranın.
 - **Büyük tablolar uzun bağlantılar oluşturur.** Bağlantı, veri miktarıyla birlikte uzar. Bazı uygulamalar ve web siteleri çok uzun bağlantıları kesebilir; bu nedenle paylaşım bağlantıları en çok küçük ve orta boy tablolar için uygundur. Büyük bir tablo için bunun yerine dışa aktarılmış bir görsel paylaşın.
 
-## Universal ID
+## Hesap yok ve kullanıcı sayımı
 
-Oturum açmak isteğe bağlıdır ve uygulama oturum açmadan da tam olarak çalışır. Universal ID ile oturum açtıysanız uygulama, grafiklerinizde kullanabilmek için kuruluşunuzun marka rengini okur. Verileriniz bu isteğin bir parçası değildir ve uygulama hesabınıza asla bir şey yazmaz.`,
+Universal Charts'ta oturum açma yoktur ve sizin ya da kullanımınız hakkında hiçbir şey kaydedilmez. Yalnızca tek bir şey gönderilir: uygulamayı kaç kişinin kullandığını saymak için tarayıcınız, size ya da herhangi bir hesaba bağlı olmayan rastgele bir sayı saklar ve uygulama açık ve ekranda olduğu sürece bunu cihaz türüyle (web, telefon veya bilgisayar) birlikte her 45 saniyede bir UNI·SIM sunucusuna gönderir. Verileriniz ve grafikleriniz asla bunun parçası değildir.`,
   },
 ]
 

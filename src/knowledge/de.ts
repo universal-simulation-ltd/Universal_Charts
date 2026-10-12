@@ -129,8 +129,7 @@ Exporte haben immer einen weißen Hintergrund, auch wenn die App im dunklen Modu
 ## Gut zu wissen
 
 - **Ihre Arbeit wird nicht gespeichert.** Die App behält keine Kopie Ihrer Daten oder Ihres Diagramms. Wenn Sie die Seite neu laden, beginnt sie wieder mit den Beispieldaten. Bewahren Sie Ihre Originaldaten auf oder erstellen Sie einen Freigabelink, wenn Sie später zu einem Diagramm zurückkehren möchten.
-- **Sie funktioniert offline.** Sobald die App geladen ist, kann sie Diagramme ohne Internetverbindung erstellen, weil nichts davon einen Server braucht.
-- **Mit einer Universal ID angemeldet?** Wenn Ihre Organisation eine Markenfarbe festgelegt hat, steht diese automatisch an erster Stelle der Farbpalette – bei Bedarf etwas abgedunkelt, damit sie sich deutlich vom weißen Hintergrund abhebt.`,
+- **Sie funktioniert offline.** Sobald die App geladen ist, kann sie Diagramme ohne Internetverbindung erstellen, weil nichts davon einen Server braucht.`,
   },
   {
     id: 'privacy-and-sharing',
@@ -157,9 +156,9 @@ Das hat zwei Folgen, die man verstehen sollte:
 - **Der Link sind die Daten.** Wer den Link hat, kann jeden Wert im Diagramm sehen. Teilen Sie ihn also nur mit Personen, die die Daten sehen dürfen. Links bleiben zudem oft erhalten – im Browserverlauf, in Chats und E-Mails und überall, wohin sie weitergeleitet werden. Behandeln Sie den Link deshalb wie die Daten selbst.
 - **Große Tabellen ergeben lange Links.** Der Link wächst mit der Datenmenge. Manche Apps und Websites kürzen sehr lange Links, daher eignen sich Freigabelinks am besten für kleine und mittelgroße Tabellen. Teilen Sie bei einer großen Tabelle lieber ein exportiertes Bild.
 
-## Universal ID
+## Kein Konto, und die Nutzerzählung
 
-Die Anmeldung ist optional, und die App funktioniert auch ohne sie vollständig. Wenn Sie mit einer Universal ID angemeldet sind, liest die App die Markenfarbe Ihrer Organisation, um sie in Ihren Diagrammen verwenden zu können. Ihre Daten sind nicht Teil dieser Abfrage, und die App schreibt nie etwas in Ihr Konto.`,
+Universal Charts hat keine Anmeldung und speichert nichts über Sie oder Ihre Nutzung. Nur eines wird gesendet: Um zu zählen, wie viele Menschen die App nutzen, speichert Ihr Browser eine Zufallszahl, die weder mit Ihnen noch mit einem Konto verknüpft ist, und sendet sie zusammen mit der Geräteart (Web, Telefon oder Computer) alle 45 Sekunden an den Server von UNI·SIM, solange die App geöffnet und auf dem Bildschirm ist. Ihre Daten und Diagramme sind nie Teil davon.`,
   },
 ]
 

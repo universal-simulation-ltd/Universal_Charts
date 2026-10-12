@@ -129,8 +129,7 @@ As exportações têm sempre fundo branco, mesmo quando a aplicação está em m
 ## A ter em conta
 
 - **O seu trabalho não é guardado.** A aplicação não guarda nenhuma cópia dos seus dados nem do gráfico. Se recarregar a página, recomeça com os dados de exemplo. Guarde os seus dados originais, ou crie uma ligação de partilha, se quiser voltar a um gráfico.
-- **Funciona offline.** Depois de carregada, a aplicação consegue criar gráficos sem ligação à internet, porque nada precisa de um servidor.
-- **Tem sessão iniciada com um Universal ID?** Se a sua organização definiu uma cor da marca, esta passa automaticamente para o início da paleta de cores, ligeiramente escurecida se necessário para se destacar bem sobre o fundo branco.`,
+- **Funciona offline.** Depois de carregada, a aplicação consegue criar gráficos sem ligação à internet, porque nada precisa de um servidor.`,
   },
   {
     id: 'privacy-and-sharing',
@@ -157,9 +156,9 @@ Isto tem duas consequências que vale a pena compreender:
 - **A ligação são os dados.** Qualquer pessoa que tenha a ligação pode ver todos os valores do gráfico, por isso partilhe-a apenas com quem pode ver esses dados. Além disso, as ligações tendem a ficar guardadas — no histórico do navegador, em conversas e e-mails, e onde quer que sejam reencaminhadas —, por isso trate a ligação como trataria os próprios dados.
 - **As tabelas grandes dão origem a ligações longas.** A ligação cresce com a quantidade de dados. Algumas aplicações e sites podem cortar ligações muito longas, por isso as ligações de partilha são mais adequadas a tabelas pequenas e médias. Para uma tabela grande, partilhe antes uma imagem exportada.
 
-## Universal ID
+## Sem conta, e a contagem de utilizadores
 
-Iniciar sessão é opcional, e a aplicação funciona totalmente sem isso. Se tiver sessão iniciada com um Universal ID, a aplicação lê a cor da marca da sua organização para a poder usar nos seus gráficos. Os seus dados não fazem parte desse pedido, e a aplicação nunca escreve nada na sua conta.`,
+O Universal Charts não tem início de sessão e não regista nada sobre si nem sobre a sua utilização. Só uma coisa é enviada: para contar quantas pessoas usam a aplicação, o navegador guarda um número aleatório, sem ligação a si nem a nenhuma conta, e envia-o com o tipo de dispositivo (web, telemóvel ou computador) para o servidor da UNI·SIM a cada 45 segundos enquanto a aplicação está aberta e no ecrã. Os seus dados e gráficos nunca fazem parte disso.`,
   },
 ]
 

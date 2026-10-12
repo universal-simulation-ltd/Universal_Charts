@@ -129,8 +129,7 @@ Le esportazioni hanno sempre lo sfondo bianco, anche quando l’app è in modali
 ## Da sapere
 
 - **Il tuo lavoro non viene salvato.** L’app non conserva alcuna copia dei tuoi dati o del grafico. Se ricarichi la pagina, riparte dai dati di esempio. Conserva i dati originali, o crea un link di condivisione, se pensi di tornare su un grafico.
-- **Funziona offline.** Una volta caricata, l’app può creare grafici senza connessione a Internet, perché nulla richiede un server.
-- **Hai effettuato l’accesso con un Universal ID?** Se la tua organizzazione ha impostato un colore del marchio, questo diventa automaticamente il primo della tavolozza, leggermente scurito se serve perché risalti bene sullo sfondo bianco.`,
+- **Funziona offline.** Una volta caricata, l’app può creare grafici senza connessione a Internet, perché nulla richiede un server.`,
   },
   {
     id: 'privacy-and-sharing',
@@ -157,9 +156,9 @@ Questo ha due conseguenze che vale la pena capire:
 - **Il link sono i dati.** Chiunque abbia il link può vedere ogni valore del grafico, quindi condividilo solo con chi può vedere quei dati. I link inoltre tendono a restare in giro (nella cronologia del browser, nelle chat e nelle email, e ovunque vengano inoltrati), quindi tratta il link come tratteresti i dati stessi.
 - **Le tabelle grandi producono link lunghi.** Il link cresce con la quantità di dati. Alcune app e alcuni siti possono troncare i link molto lunghi, quindi i link di condivisione sono più adatti a tabelle piccole e medie. Per una tabella grande, condividi piuttosto un’immagine esportata.
 
-## Universal ID
+## Nessun account, e il conteggio degli utenti
 
-L’accesso è facoltativo, e l’app funziona completamente anche senza. Se hai effettuato l’accesso con un Universal ID, l’app legge il colore del marchio della tua organizzazione per poterlo usare nei tuoi grafici. I tuoi dati non fanno parte di questa richiesta, e l’app non scrive mai nulla nel tuo account.`,
+Universal Charts non ha un accesso e non registra nulla su di te né sul tuo utilizzo. Viene inviata una sola cosa: per contare quante persone usano l’app, il browser conserva un numero casuale, non collegato a te né ad alcun account, e lo invia insieme al tipo di dispositivo (web, telefono o computer) al server di UNI·SIM ogni 45 secondi mentre l’app è aperta e sullo schermo. I tuoi dati e i tuoi grafici non ne fanno mai parte.`,
   },
 ]
 

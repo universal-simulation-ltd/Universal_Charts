@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { UniversalAppsNavBar, UpdateNotice, accessibleColor, useOrgBranding } from '@unisim/sdk'
+import { UniversalAppsNavBar, UpdateNotice } from '@unisim/sdk'
 import AppMenu, { ABOUT } from './components/Header/AppMenu'
 import ProductLogo from './components/Header/ProductLogo'
 import ChartStudio from './components/charts/ChartStudio'
@@ -12,8 +12,6 @@ const REPO_URL = 'https://github.com/universal-simulation-ltd/Universal_Charts'
 
 export default function App() {
   const hydrate = useChartStore((s) => s.hydrate)
-  const applyBrandColor = useChartStore((s) => s.applyBrandColor)
-  const { brand_color } = useOrgBranding()
   // The RESOLVED theme ('system' already folded to light/dark). The SDK bar and
   // its dropdowns are inline-styled, so they can't read the `.dark` class the
   // rest of this page uses — they need to be told.
@@ -34,16 +32,10 @@ export default function App() {
     return () => window.removeEventListener('hashchange', load)
   }, [hydrate])
 
-  // Tint the palette with the signed-in org's brand colour (no-op anonymously).
-  // Series are graphics, not text, so the bar is WCAG's 3:1 non-text contrast
-  // against the white chart ground: a pale brand colour is darkened just enough
-  // to be seen, same hue. The palette picker still shows exactly what's picked.
-  // ⚠️ Deliberately NOT theme-aware: the chart ground stays white in dark mode
-  // too (it is the exported artwork — see ChartStudio), so white is still the
-  // ground the series sit on.
-  useEffect(() => {
-    applyBrandColor(accessibleColor(brand_color, { minRatio: 3 }) ?? brand_color)
-  }, [brand_color, applyBrandColor])
+  // The org brand-colour tint (useOrgBranding) was removed with sign-in
+  // (noAccounts, privacy audit 2026-10-12): it read the org of whoever was
+  // signed in elsewhere on .unisim.co.uk, an account link the page no longer
+  // has. chartStore.applyBrandColor is kept for if accounts ever return.
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-100 dark:bg-slate-950">

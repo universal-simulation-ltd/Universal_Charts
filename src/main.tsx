@@ -6,10 +6,13 @@ import App from './App'
 import './index.css'
 
 // Universal Charts is a client-only tool — data never leaves the browser. We
-// still mount <UniversalProvider> so the shared navbar works and, when the
-// visitor is signed in on .unisim.co.uk, the navbar shows their profile/avatar
-// and useOrgBranding can tint the palette with their brand colour. The app
-// never writes anything to Supabase.
+// still mount <UniversalProvider> so the shared navbar works.
+//
+// No accounts (privacy audit 2026-10-12): `noAccounts: true`, no org
+// brand-colour read. The one thing that reaches Supabase is the SDK user count
+// (`presence`: a random install id kept in this browser plus the kind of
+// device, every 45 s while the page is open and in view), set explicitly and
+// described in the "privacy-and-sharing" article and README → Privacy.
 //
 // The fallback is the REAL public suite project (publishable anon key — safe to
 // ship; RLS is the security boundary). A placeholder fallback left the SDK on a
@@ -22,6 +25,8 @@ const universalConfig = {
   // isn't in the published package yet — cast until the SDK is republished
   // (mirrors how Universal QR shipped 'qr').
   product: 'charts' as unknown as ProductCode,
+  noAccounts: true,
+  presence: true,
   cookieDomain: import.meta.env.PROD ? '.unisim.co.uk' : undefined,
 }
 

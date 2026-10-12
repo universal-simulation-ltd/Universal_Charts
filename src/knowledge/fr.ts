@@ -129,8 +129,7 @@ Les exports ont toujours un fond blanc, même lorsque l’application est en mod
 ## À savoir
 
 - **Votre travail n’est pas enregistré.** L’application ne conserve aucune copie de vos données ni de votre graphique. Si vous rechargez la page, elle repart des données d’exemple. Gardez vos données d’origine, ou créez un lien de partage, si vous pensez revenir sur un graphique.
-- **Elle fonctionne hors ligne.** Une fois l’application chargée, elle peut créer des graphiques sans connexion Internet, car rien ne nécessite de serveur.
-- **Connecté avec un Universal ID ?** Si votre organisation a défini une couleur de marque, celle-ci passe automatiquement en tête de la palette, légèrement assombrie si nécessaire pour bien ressortir sur le fond blanc.`,
+- **Elle fonctionne hors ligne.** Une fois l’application chargée, elle peut créer des graphiques sans connexion Internet, car rien ne nécessite de serveur.`,
   },
   {
     id: 'privacy-and-sharing',
@@ -157,9 +156,9 @@ Cela a deux conséquences qu’il vaut la peine de comprendre :
 - **Le lien, ce sont les données.** Toute personne qui possède le lien peut voir chaque valeur du graphique : ne le partagez donc qu’avec des personnes autorisées à voir ces données. Les liens ont aussi tendance à être conservés — dans l’historique du navigateur, dans les discussions et les e-mails, et partout où ils sont transférés — : traitez donc le lien comme vous traiteriez les données elles-mêmes.
 - **Les grands tableaux donnent des liens longs.** Le lien s’allonge avec la quantité de données. Certaines applications et certains sites peuvent tronquer les liens très longs : les liens de partage conviennent donc surtout aux tableaux petits et moyens. Pour un grand tableau, partagez plutôt une image exportée.
 
-## Universal ID
+## Pas de compte, et le comptage des utilisateurs
 
-La connexion est facultative, et l’application fonctionne pleinement sans elle. Si vous êtes connecté avec un Universal ID, l’application lit la couleur de marque de votre organisation afin de pouvoir l’utiliser dans vos graphiques. Vos données ne font pas partie de cette demande, et l’application n’écrit jamais rien dans votre compte.`,
+Universal Charts n’a pas de connexion et n’enregistre rien sur vous ni sur votre utilisation. Une seule chose est envoyée : pour compter le nombre de personnes qui utilisent l’application, votre navigateur conserve un nombre aléatoire, lié ni à vous ni à un compte, et l’envoie avec le type d’appareil (web, téléphone ou ordinateur) au serveur d’UNI·SIM toutes les 45 secondes tant que l’application est ouverte et affichée. Vos données et vos graphiques n’en font jamais partie.`,
   },
 ]
 
